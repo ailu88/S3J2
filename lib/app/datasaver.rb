@@ -3,7 +3,7 @@ class DataSaver
 
 
 	def save_as_JSON
-		File.open("../db/emails.json","w+") do |f|
+		File.open("db/emails.json","w+") do |f|
 		  puts f.write($email_list.to_json)
 		end
 	end 
@@ -51,7 +51,7 @@ class DataSaver
 
 	def save_as_csv
 
-		CSV.open("thp/S3/S3J2/db/emails.csv", "wb") do |csv|
+		CSV.open("db/emails.csv", "wb") do |csv|
 
 
 			(0..$email_list.length-1).each do |i|

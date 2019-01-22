@@ -4,6 +4,7 @@ class Scrapper
 
 	attr_accessor :scrapped_result_array
 
+
 	def get_townhall_urls	# creates an array with URLs of all towns from Dep 95
 
 		page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
@@ -15,7 +16,6 @@ class Scrapper
 		    $url_array << "http://annuaire-des-mairies.com"+url['href'].slice(1..-1)
 		    end
 		return $url_array
-
 	end
 
 
@@ -40,8 +40,6 @@ class Scrapper
 
 	def scrapping_townhalls_email		# creates a hash with the town name associated with its email for all URLs of Dep 95.
 
-		get_townhall_urls
-
 		$email_list = [] 
 			$url_array.each do |town_url|
 				hash = { get_townhall_name(town_url) => get_townhall_email(town_url)}
@@ -53,10 +51,6 @@ class Scrapper
 		$scrapped_result_array = $email_list
 	end 
 
-	begin 								# Manage Exceptions
-		scrapping_townhalls_email
-	rescue => e 
-		puts "Oups petite erreur mais c'est pas grave"
-	end 
+
 
 end 
