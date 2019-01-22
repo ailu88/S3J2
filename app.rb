@@ -18,13 +18,6 @@ puts "emails scrapped :"
 puts $email_list
 
 
-puts ("Voulez-vous enregistrer vos résultats dans une Google Spreadsheet ? (Y/n)") 
-	answer = gets.chomp
-	if answer == "Y"
-		DataSaver.new.save_as_spreadsheet
-		puts "Saved in a spreadheet ! Follow this link : https://docs.google.com/spreadsheets/d/1LyqkUaCtw_4n8TWtgD0GcusTB_qypRA9MIz6tM7FvuI/edit?usp=sharing"
-	else end 
-
 puts ("Voulez-vous enregistrer vos résultats au format JSON ? (Y/n)") 
 	answer = gets.chomp
 	if answer == "Y"
@@ -39,7 +32,12 @@ puts ("Voulez-vous enregistrer vos résultats au format CSV ? (Y/n)")
 		puts "Saved in db/emails.csv"
 	else end 
 
-
+puts ("Voulez-vous enregistrer vos résultats dans une Google Spreadsheet ? (Y/n)") 
+	answer = gets.chomp
+	if answer == "Y"
+		DataSaver.new.save_as_spreadsheet
+		puts "Saved in a spreadheet ! Follow this link : https://docs.google.com/spreadsheets/d/1LyqkUaCtw_4n8TWtgD0GcusTB_qypRA9MIz6tM7FvuI/edit?usp=sharing"
+	else end 
 
 # Open bar pour tester ton application. Tous les fichiers importants sont chargés
 # Tu peux faire User.new, Event.new, binding.pry, User.all, etc etc
